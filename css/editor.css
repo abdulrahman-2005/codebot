@@ -1,0 +1,43 @@
+
+#editor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#editor textarea {
+    height: 80%;
+    width: 95%;
+    background-color: rgb(41, 40, 40);
+    color: var(--green);
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    outline: none;
+}
+
+#editor div {
+    width: 95%;
+    height: 10%;
+    display: flex;
+    gap: 10px;
+}
+
+#editor button {
+    width: 50%;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#editor button:hover {
+    background-color: var(--green-hover);
+}
+
+
+#editor[state="closed"] {
+    display: none !important;
+    box-shadow: none;
+}

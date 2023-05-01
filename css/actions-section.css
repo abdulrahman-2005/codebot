@@ -1,0 +1,80 @@
+
+#actions-sction {
+    height: 100vh;
+    width: 30vw;
+    background-color: black;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vw;
+    border: 5px solid var(--green)
+}
+
+#robot-buttons-list {
+    height: 60%;
+    width: 100%;
+    padding: 2vw;
+    overflow: auto;
+    border-top: 5px solid var(--green);
+    border-bottom: 5px solid var(--green);
+}
+
+
+
+#robot-buttons-list button {
+    height: fit-content;
+    width: 100%;
+    font-size: 2rem;
+    padding: .5rem;
+    margin-bottom: 10px;
+}
+
+#robot-buttons-list button[state="selected"] {
+    border-color: blue;
+}
+
+#robot-buttons-list button:hover {
+    background-color: var(--green-hover);
+}
+
+#robot-buttons-list::-webkit-scrollbar {
+    width: 20px;
+}
+
+#robot-buttons-list::-webkit-scrollbar-track {
+    background:black;
+    
+}
+#robot-buttons-list::-webkit-scrollbar-thumb {
+    background: var(--green);
+}
+
+#robot-shortcut-actions {
+    height: 40%;
+    width: 100%;
+    padding: .5rem;
+    border-top: 5px solid var(--green);
+}
+
+#open-editor-button {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#shourtcut-buttons-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    gap: .2vw;
+}
+
+#robot-shortcut-actions button {
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: var(--green);
+    color: black;
+}

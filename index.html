@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>codebot - Main</title>
+	<link rel="icon" href="./assets/icon.png" type="image/png">
+	<link rel="stylesheet" href="./css/index.css" />
+	<link rel="stylesheet" href="./css/actions-section.css">
+	<link rel="stylesheet" href="./css/grid.css" />
+	<link rel="stylesheet" href="./css/robotInfoWindow.css">
+	<link rel="stylesheet" href="./css/editor.css" />
+	<link rel="stylesheet" href="./css/mobile.css">
+</head>
+
+<body>
+	<button id="addnew-fixed-btn"  	class="fixed-util-btn" onclick="openCreationPrompt()"title="create a new Robot">+</button>
+	<button id="runpause-fixed-btn" class="fixed-util-btn" onclick="runpause()" title="run/pause engine">></button>
+	<button id="aboutme-fixed-btn"  class="fixed-util-btn" onclick="aboutme()" class="rvbtn" title="create a new Robot">??</button>
+	<div id="container">
+		<div id="actions-sction">
+			<h1>Robots</h1>
+			<div id="robot-buttons-list"></div>
+			<h1>Actions</h1>
+			<div id="robot-shortcut-actions"></div>
+		</div>
+		<div id="grid"></div>
+	</div>
+	
+	<div id="editor" class="window" state="closed">
+		<h3>commands: MOVE(UP, DOWN, LEFT, RIGHT), ROTATE(deg), MOD(VAR), SET(VAR), PLAY(SOUNDNAME), PASS</h3>
+		<textarea name="sourcecode" id="source-code-textarea"></textarea>
+		<div>
+			<button onclick="saveEditor()">submit</button>
+			<button onclick="closeEditor()">close[discard]</button>
+		</div>
+	</div>
+	<div id="customAlert" state="closed" onclick="_alert()"></div>
+	<div class="robot-info-window window" state="closed">
+		<button class="close-prompt" onclick="closeCreationPrompt()">×</button>
+		<h1>Create A New Robot :{</h1>
+		<h4>
+			01111001 01101111 01110101 00100000 01101101 01101111 01110100
+			01101000 01100101 01110010 01100110 01110101 01100011 01101011
+			01100101 01110010
+		</h4>
+		<div id="robot-varibles-inputs">
+			<div class="robot-variable-input">
+				<span>Name:</span>
+				<input type="text" id="robotNamePrompt" placeholder="robot name" />
+			</div>
+			<div class="robot-variable-input">
+				<span>Size:</span>
+				<input type="number" id="robotHeightPrompt" placeholder="Height" value="100" />
+			</div>
+			<div class="robot-variable-input">
+				<span>Width:</span>
+				<input type="number" id="robotWidthPrompt" placeholder="Width" value="100"/>
+			</div>
+			<div class="robot-variable-input">
+				<span>top:</span>
+				<input type="number" id="posXPrompt" placeholder="pos X" value="50"/>
+			</div>
+			<div class="robot-variable-input">
+				<span>left:</span>
+				<input type="number" id="posYPrompt" placeholder="pos Y" value="50"/>
+			</div>
+			<div class="robot-variable-input">
+				<span>Color:</span>
+				<input type="color" value="#B71A1A" id="colorPrompt" placeholder="CSS Color" />
+			</div>
+			<div class="robot-variable-input">
+				<span>Radius:</span>
+				<input type="text" id="radiusPrompt" placeholder="border-radius" value="20px"/>
+			</div>
+			<div class="robot-variable-input">
+				<span>Rotation:</span>
+				<input type="number" id="rotationPrompt" placeholder="Rotation" value="0"/>
+			</div>
+			<div class="robot-variable-input">
+				<span>Speed:</span>
+				<input type="number" id="speedPrompt" placeholder="robot speed" value="5"/>
+			</div>
+		</div>
+		<button class="submit" onclick="closeCreationPrompt(true)">
+			Submit
+		</button>
+	</div>
+	<audio src="" id="audio"></audio>
+	<script src="./js/utils.js"></script>
+	<script src="./js/robot.js"></script>
+	<script src="./js/engine.js"></script>
+</body>
+
+</html>

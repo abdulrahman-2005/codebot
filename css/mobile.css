@@ -1,0 +1,103 @@
+@media screen and (max-width: 600px) {
+	/* CSS rules go here */
+	* {
+		font-size: 1rem !important;
+        box-sizing: border-box !important;
+	}
+
+	#container {
+		flex-direction: column-reverse;
+	}
+
+	#grid {
+		height: 80vh;
+		width: 100vw;
+	}
+
+	#actions-sction {
+		height: 20vh;
+		width: 100vw;
+		flex-direction: row;
+	}
+
+	#robot-buttons-list {
+		border: none;
+		border-left: 2px solid var(--green);
+		border-right: 2px solid var(--green);
+		height: 100%;
+	}
+
+	#robot-shortcut-actions {
+		border: none;
+		border-left: 2px solid var(--green);
+		height: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 3px
+	}
+
+    .editor-button {
+        height: 100%;
+        width:20%;
+        text-orientation: sideways;
+    }
+
+	.robot-info-window h4 {
+		display: none;
+	}
+
+	#robot-varibles-inputs {
+		margin-top: 10px;
+		height: fit-content;
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(1, auto);
+        overflow: auto;
+	}
+
+	.robot-variable-input {
+		height: fit-content;
+		width: 100%;
+		margin-bottom: 5px;
+		padding: 0.3vw;
+		display: flex;
+	}
+
+	.robot-variable-input span {
+		font-size: 2rem;
+		width: 50%;
+	}
+
+	.robot-variable-input input {
+		background-color: black;
+        width: 50%;
+		color: var(--green);
+		font-size: 2rem;
+		padding: 0.3vw;
+		border: 2px solid var(--green);
+		margin-left: 0.5vw;
+		outline: none;
+	}
+
+	.robot-variable-input input::placeholder {
+		color: var(--green-hover);
+	}
+
+    .fixed-util-btn {
+        right: 50px !important;
+    }
+
+    #addnew-fixed-btn {
+        top: 50px;
+    }
+
+    #runpause-fixed-btn {
+        top: 100px;
+    }
+
+    #aboutme-fixed-btn {
+        top: 150px;
+        border-radius: 3px;
+    }
+
+}

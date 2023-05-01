@@ -1,0 +1,28 @@
+
+
+#grid {
+    position: relative;
+    height: 100vh;
+    width: 70vw;
+    background-color: black;
+    border: 5px solid var(--green);
+    padding-right: 100px;
+    padding-bottom: 100px;
+    overflow: auto;
+}
+
+
+.robot {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.robot[state="selected"] {
+    border: 5px solid blue;
+    z-index: 995;
+}
