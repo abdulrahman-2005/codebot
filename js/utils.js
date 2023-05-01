@@ -1,5 +1,19 @@
 const alertEl = document.getElementById("customAlert");
 const robotInfoWindow = document.querySelector(".robot-info-window");
+
+const infoWindowTitle = document.getElementById("infoWindowTitle")
+
+const nameInput = document.getElementById("robotNamePrompt");
+const xInput = document.getElementById("posXPrompt");
+const yInput = document.getElementById("posYPrompt");
+const heightInput = document.getElementById("robotHeightPrompt");
+const widthInput = document.getElementById("robotWidthPrompt");
+const colorInput = document.getElementById("colorPrompt");
+const radiusInput = document.getElementById("radiusPrompt");
+const rotationInput = document.getElementById("rotationPrompt");
+const velocityInput = document.getElementById("speedPrompt");
+
+
 const robotShortcutActionsEl = document.getElementById(
 	"robot-shortcut-actions"
 );
@@ -17,44 +31,79 @@ async function sleep(ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function openCreationPrompt() {
+function openCreationWindow() {
 	robotInfoWindow.setAttribute("state", "opened");
 	document.getElementById("robotNamePrompt").value = `robot-${robots.length}`;
 	pause();
 }
 
-function closeCreationPrompt(create = false) {
+function closeCreationWindow(create = false) {
 	robotInfoWindow.setAttribute("state", "closed");
+
+	if (infoOpened && infoOpenedRobot && infoOpenedEl) {
+		infoOpenedRobot.name = name.value;
+		infoOpenedRobot.left = parseInt(xInput.value);
+		infoOpenedRobot.top = parseInt(yInput.value);
+		infoOpenedRobot.height = parseInt(heightInput.value);
+		infoOpenedRobot.width = parseInt(widthInput.value);
+		infoOpenedRobot.radius = radiusInput.value;
+		infoOpenedRobot.color = colorInput.value;
+		infoOpenedRobot.velocity = parseInt(velocityInput.value);
+		infoOpenedRobot.rotation = parseInt(rotationInput.value);
+		infoOpenedEl.style = infoOpenedRobot.styles()
+		console.log(infoOpenedRobot)
+		infoOpened = false;
+		infoOpenedRobot = false;
+		infoOpenedEl = false;
+		_alert (`<h5 style="color: var(--green);">SUCCESS --> Robot Updated!</h1>`);
+		return
+	}
 
 	if (!create) {
 		return;
 	}
 
-	let name = document.getElementById("robotNamePrompt").value;
-	let x = document.getElementById("posXPrompt").value;
-	let y = document.getElementById("posYPrompt").value;
-	let height = document.getElementById("robotHeightPrompt").value;
-	let width = document.getElementById("robotWidthPrompt").value;
-	let color = document.getElementById("colorPrompt").value;
-	let radius = document.getElementById("radiusPrompt").value;
-	let rotation = document.getElementById("rotationPrompt").value;
-	let velocity = document.getElementById("speedPrompt").value;
+	infoWindowTitle.innerHTML = "Create A New Robot :{"
 
 	let robot = new Robot(
-		Grid,
-		name,
-		x,
-		y,
-		height,
-		width,
-		radius,
-		color,
-		velocity,
-		rotation
+		Grid.value,
+		name.value,
+		xInput.value,
+		yInput.value,
+		heightInput.value,
+		widthInput.value,
+		radiusInput.value,
+		colorInput.value,
+		velocityInput.value,
+		rotationInput.value
 	);
 	robot.render();
 	_alert(`<h5 style="color: var(--green);">SUCCESS --> Robot Created!</h1>`);
 }
+
+let infoOpened = false;
+let infoOpenedRobot = false;
+let infoOpenedEl = false;
+function openRobotInfo(index) {
+	let r =  robots[index];
+	console.log(r)
+	name.value = r.name;
+	xInput.value = r.left;
+	yInput.value = r.top;
+	heightInput.value = r.height;
+	widthInput.value = r.width;
+	radiusInput.value = r.radius;
+	colorInput.value = r.color;
+	velocityInput.value = r.velocity;
+	rotationInput.value = r.rotation;
+	robotInfoWindow.setAttribute("state", "opened");
+	infoOpened = true;
+	infoOpenedRobot = r;
+	infoWindowTitle.innerHTML = "Edit Robot :{"
+	infoOpenedEl = document.getElementById(`robot-${index}`);
+}
+
+
 
 let selectedRobotEl = false;
 let selectedRobotObject = false;
@@ -213,6 +262,8 @@ function updateRobotsList() {
 	robotButtonsListEl.innerHTML = "";
 	for (let i = 0; i < robots.length; i++) {
 		robots[i].index = i;
-		robotButtonsListEl.innerHTML += `<button onclick="selectRobotById(this, ${i})" id="robot-button-${i}"><p style="color: ${this.color}">${robots[i].name}</p></button>`;
+		robotButtonsListEl.innerHTML += `<button ondblclick="openRobotInfo(${i})" onclick="selectRobotById(this, ${i})" id="robot-button-${i}"><p style="color: ${this.color}">${robots[i].name}</p></button>`;
 	}
 }
+
+

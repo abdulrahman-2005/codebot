@@ -13,10 +13,6 @@ async function rerun() {
 			object.render();
 		});
 
-		if (selectedRobotObject) {
-			scrollToChild(Grid, selectedRobotEl)
-		}
-
 		check();
 	}
 }

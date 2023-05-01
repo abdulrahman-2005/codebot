@@ -16,9 +16,10 @@
 </head>
 
 <body>
-	<button id="addnew-fixed-btn"  	class="fixed-util-btn" onclick="openCreationPrompt()"title="create a new Robot">+</button>
+	<button id="addnew-fixed-btn"  	class="fixed-util-btn" onclick="openCreationWindow()"title="create a new Robot">+</button>
 	<button id="runpause-fixed-btn" class="fixed-util-btn" onclick="runpause()" title="run/pause engine">></button>
 	<button id="aboutme-fixed-btn"  class="fixed-util-btn" onclick="aboutme()" class="rvbtn" title="create a new Robot">??</button>
+	<a href="./help.html" id="help-fixed-btn"  class="fixed-util-btn"  title="help">help</a>
 	<div id="container">
 		<div id="actions-sction">
 			<h1>Robots</h1>
@@ -39,8 +40,8 @@
 	</div>
 	<div id="customAlert" state="closed" onclick="_alert()"></div>
 	<div class="robot-info-window window" state="closed">
-		<button class="close-prompt" onclick="closeCreationPrompt()">×</button>
-		<h1>Create A New Robot :{</h1>
+		<button class="close-prompt" onclick="closeCreationWindow()">×</button>
+		<h1 id="infoWindowTitle">Create A New Robot :{</h1>
 		<h4>
 			01111001 01101111 01110101 00100000 01101101 01101111 01110100
 			01101000 01100101 01110010 01100110 01110101 01100011 01101011
@@ -52,7 +53,11 @@
 				<input type="text" id="robotNamePrompt" placeholder="robot name" />
 			</div>
 			<div class="robot-variable-input">
-				<span>Size:</span>
+				<span>Color:</span>
+				<input type="color" value="#B71A1A" id="colorPrompt" placeholder="CSS Color" />
+			</div>
+			<div class="robot-variable-input">
+				<span>Height:</span>
 				<input type="number" id="robotHeightPrompt" placeholder="Height" value="100" />
 			</div>
 			<div class="robot-variable-input">
@@ -68,10 +73,6 @@
 				<input type="number" id="posYPrompt" placeholder="pos Y" value="50"/>
 			</div>
 			<div class="robot-variable-input">
-				<span>Color:</span>
-				<input type="color" value="#B71A1A" id="colorPrompt" placeholder="CSS Color" />
-			</div>
-			<div class="robot-variable-input">
 				<span>Radius:</span>
 				<input type="text" id="radiusPrompt" placeholder="border-radius" value="20px"/>
 			</div>
@@ -84,7 +85,7 @@
 				<input type="number" id="speedPrompt" placeholder="robot speed" value="5"/>
 			</div>
 		</div>
-		<button class="submit" onclick="closeCreationPrompt(true)">
+		<button class="submit" onclick="closeCreationWindow(true)">
 			Submit
 		</button>
 	</div>

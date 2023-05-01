@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./css/index.css" />
+		<style>
+			* {
+				color: var(--green);
+			}
+
+			#container {
+				height: 100vh;
+				width: 100vw;
+				background-color: black;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				gap: 1vw;
+			}
+
+			button {
+				padding: 0.5vw;
+				font-size: 1rem;
+			}
+
+			#container textarea {
+				height: 80vh;
+				width: 90vw;
+				border: 5px solid var(--green);
+				background-color: black;
+				color: var(--green);
+                padding: 1vw;
+                font-size: 2rem;
+                line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<h1 id="title">CodeBot Tutorial</h1>
+			<div>
+				<button onclick="changeLanguage(this)">عربي</button>
+				<a href="index.html"><button id="backbutton">العودة</button></a>
+			</div>
+			<textarea id="textarea"></textarea>
+		</div>
+		<script>
+			const arabic = `
+الاستخدام الاساسي
+1.اضغط على علامة الزائد لانشاء روبوت
+2.يمكنك الضغط على السهم/المربع لبدء/ايقاف التشغيل
+3.يمكنك تعديل كود الروبوت عن طريق الضغط عليه او الضغط على الزر الملازم له من القائمة، ثم الضغض على "open editor"
+4.سيظهر لك محرر الاكواد يمكنك التعديل كما تشاء، ستجد بيانات الاكواد بالاسفل
+5.يمكنك الضغط مرتين على الروبوت او الزر لفتح قائمة بيانات الروبوت حيث يمكنك تعديلها مباشرة
+6.يمكنك حذف الروبوت عن طريق الاضغط على "remove robot"
+
+الاكواد
+1. MOVE + RIGHT or LEFT or UP or DOWN :::: لتحريك الروبوت في اربع اتجاهات
+2. ROTATE + رقم :::: لتدوير الروبوت الى اليمين او اليسار حسب اشارة الدجة
+3. SET + COLOR or SPEED or X or Y or RADIUS or HEIGHT or WIDTH + قيمة جديدة :::: لتغيير قيمة احدى المتغيرات
+4. MOD + نفس المتغيرات ولكن الرقميةط + قيمة بالزيادة او النقصان :::: لتعديل قيمة المتغير
+
+`;
+
+			const english = `
+Basic use
+1.Click on the plus sign to create a bot
+2. You can press the arrow/square to start/stop playback
+3. You can modify the robot's code by clicking on it or pressing the button associated with it from the list, then clicking on "open editor".
+4. A code editor will appear for you, and you can modify it as you like. You will find the code data below
+5. You can double click on the robot or button to open the list of robot data where you can modify it directly
+6. You can delete the bot by clicking on "remove robot".
+
+Codes
+1. MOVE + RIGHT or LEFT or UP or DOWN :::: to move the robot in four directions
+2. ROTATE + No.:::: To rotate the robot to the right or left, according to the pitch
+3. SET + COLOR or SPEED or X or Y or RADIUS or HEIGHT or WIDTH + a new value:::: to change the value of a variable
+4. MOD + the same variables but numeric i + increment or decrement value :::: to modify the value of the variable`;
+			const textareaEl = document.getElementById("textarea");
+			const title = document.getElementById("textarea");
+			const backbutton = document.getElementById("backbutton");
+            textareaEl.value = english
+			function changeLanguage(button) {
+				if (button.innerHTML === "English") {
+                    textareaEl.setAttribute("dir", "ltr")
+					button.innerHTML = "عربي";
+					textareaEl.value = english;
+					title.innerHTML = "CodeBot Tutorial";
+					backbutton.innerHTML = "back";
+				} else {
+                    textareaEl.setAttribute("dir", "rtl")
+					button.innerHTML = "English";
+					textareaEl.value = arabic;
+					title.innerHTML = "شرح CodeBot";
+					backbutton.innerHTML = "العودة";
+				}
+			}
+		</script>
+	</body>
+</html>

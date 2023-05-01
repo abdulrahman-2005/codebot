@@ -66,7 +66,7 @@ class Robot {
 		this.currentStep = 0;
 		this.index = robots.length;
 		robots.push(this);
-		robotButtonsListEl.innerHTML += `<button onclick="selectRobotById(this, ${this.index})" id="robot-button-${this.index}"><p style="color: ${this.color}">${this.name}</p></button>`;
+		robotButtonsListEl.innerHTML += `<button ondblclick="openRobotInfo(${this.index})" onclick="selectRobotById(this, ${this.index})" id="robot-button-${this.index}"><p style="color: ${this.color}">${this.name}</p></button>`;
 	}
 	
 	modify(name, amount) {
@@ -160,7 +160,7 @@ class Robot {
 		
 		render() {
 			Grid.innerHTML += `<div class="robot" id="robot-${this.index}"
-			onclick="selectRobot(this)" index="${this.index}"
+			onclick="selectRobot(this)" ondblclick="openRobotInfo(${this.index})" index="${this.index}"
 			style="${this.styles()}" title="${this.name}" class="robot">
 			${this.name}
 			</div>`;

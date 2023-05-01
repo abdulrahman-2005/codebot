@@ -23,6 +23,6 @@
 
 
 .robot[state="selected"] {
-    border: 5px solid blue;
+    border: 5px solid blue !important;
     z-index: 995;
 }

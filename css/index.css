@@ -51,6 +51,13 @@ button {
     border-radius: 10px;
 }
 
+#help-fixed-btn {
+    right: 50px;
+    top: 150px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
 #customAlert {
     height: fit-content;
     position: fixed;

@@ -100,4 +100,8 @@
         border-radius: 3px;
     }
 
+	#help-fixed-btn {
+		top: 200px;
+	}
+
 }
