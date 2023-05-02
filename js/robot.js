@@ -239,7 +239,7 @@ class Robot {
 			for (let robot of robots) {
 				if (robot !== this && robot.collidesWith(this)) {
 					inCollision = true;
-					for (i of robot.collisionDirection(this)) {
+					for (let i of robot.collisionDirection(this)) {
 						collisionDirections.push(i);
 					}
 				}
