@@ -60,8 +60,7 @@ class Robot {
 		this.radius = radius;
 		this.name = name;
 		this.sourceCode =
-		'MOVE ARIGHT 50\nMOVE ADOWN 50\nMOVE ALEFT 50\nMOVE AUP 50\nROTATE 3\nplay boop\nMOVE RIGHT 2\nMOVE down 2\nmove left 2\nmove up 2\nrotate 3\nset height 100\nset color red\nplay laser\nset width 100\nset color purple\nrotate -6\nplay ding\nset height 50\nset width 50'.toUpperCase()
-		;
+			"MOVE ARIGHT 50\nMOVE ADOWN 50\nMOVE ALEFT 50\nMOVE AUP 50\nROTATE 3\nplay boop\nMOVE RIGHT 2\nMOVE down 2\nmove left 2\nmove up 2\nrotate 3\nset height 100\nset color red\nplay laser\nset width 100\nset color purple\nrotate -6\nplay ding\nset height 50\nset width 50".toUpperCase();
 		this.steps = this.getSteps();
 		this.currentStep = 0;
 		this.index = robots.length;
@@ -189,7 +188,9 @@ class Robot {
 	}
 
 	getSteps() {
-		return this.sourceCode.split("\n").map((step) => step.split(" ").map((s) => s.replaceAll(" ", "")));
+		return this.sourceCode
+			.split("\n")
+			.map((step) => step.split(" ").map((s) => s.replaceAll(" ", "")));
 	}
 
 	updateSourceCode(code) {
@@ -234,11 +235,13 @@ class Robot {
 		if (step[0] === "MOVE") {
 			let collisionDirections = [];
 			let inCollision = false;
-			
+
 			for (let robot of robots) {
 				if (robot !== this && robot.collidesWith(this)) {
 					inCollision = true;
-					collisionDirections = [...collisionDirections, ...robot.collisionDirection(this)];
+					for (i of robot.collisionDirection(this)) {
+						collisionDirections.push(i);
+					}
 				}
 			}
 			if (inCollision && collisionDirections.includes(step[1])) {
