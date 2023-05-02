@@ -227,7 +227,7 @@ class Robot {
 				return y > 0 ? ["UP", "AUP"] : ["DOWN", "ADOWN"];
 			}
 		}
-		return false;
+		return [false];
 	}
 	apply() {
 		let step = this.steps[this.currentStep];
