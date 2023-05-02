@@ -1,6 +1,6 @@
 [] => changing the properties and variables of a Robot (by clicking on it)
 [] => ability to copy a robot, or copy robot sourceCode
-[] => more movement commands, like [UPRIGHT, UPLEFT, DOWNRIGHT, DOWNLEFT, MOVEN(to move N times)]
+[] => more movement commands, like [UPRIGHT, UPLEFT, DOWNRIGHT, DOWNLEFT]
 [] => keyboard and mapping keys, like (KEYPRESS A MOVE LEFT\nKEYPRESS K PLAY BOOP)
 [] => setting up modes, like (MODE PLATFORM) or (MODE ARCADE)
 [] => keyword (ROUTINE) which will specify a set if multiple commands to do in one iteration
@@ -8,26 +8,26 @@
 [] => Keyword (ITERM) like (ITERM 10 MOVEN RIGHT 10), to run a command [or a routine] on the (iteration % N == 0)
 [] => Keyword (COPY) like (COPY otherRobotIndex) to do the same the the other robot does in the current turn or the turn before, if the other robots plays first or last 
 [] => Keyword (RANDOM) like (MOVEN RIGHT RANDOM 1 10) that return a random number between n1, n2 as one thing for the keyword before 
-[] => Keywords (C+MOVENT_NAME) to move regardless of the rotation, to mode in the absolute direction
+[done] => Keywords (A+MOVENT_NAME) to move regardless of the rotation, to mode in the absolute direction
 $--> concept FOLLOW, to follow a specific Robot and scroll to its position on every iteration
 $--> concept LAYER, to allow moving in the 3rd dimension, introducing (IN, OUT) movements
 
 [] UI fixes
-    1- the createRobotPrompt
+    1- the createRobotPrompt [done]
     2- better color scheme
     3- 
 
 [] Insecurity fixes
-    1- comming with better names for functions, variables and css
-    2- reorganizing the code
+    1- comming with better names for functions, variables and css [done]
+    2- reorganizing the code [done]
     3- meta tags, and better images
 
 [] Product Fixes
     1- adding more sounds
-    2- adding google analytics (in case of publishing) --supposed to be in Insecurity--
+    2- adding google analytics (in case of publishing) --supposed to be in Insecurity-- [done]
     3- images for the background, although its possible with a trick
-    4- creating a comprehensive tutorial, like a game tutorial
-    5- publishing to github
+    4- creating a comprehensive tutorial, like a game tutorial [partial]
+    5- publishing to github [done]
 
 (ARCADE mode) --> basically the default but with more utilities to allow for making games
 (PLATFORM mode) --> to make the surface a collision ground and every other robot will fall onto it, making it either a player or an obstacle
