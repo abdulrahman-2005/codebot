@@ -41,7 +41,7 @@ function closeCreationWindow(create = false) {
 	robotInfoWindow.setAttribute("state", "closed");
 
 	if (infoOpened && infoOpenedRobot && infoOpenedEl) {
-		infoOpenedRobot.name = name.value;
+		infoOpenedRobot.name = nameInput.value;
 		infoOpenedRobot.left = parseInt(xInput.value);
 		infoOpenedRobot.top = parseInt(yInput.value);
 		infoOpenedRobot.height = parseInt(heightInput.value);
@@ -67,7 +67,7 @@ function closeCreationWindow(create = false) {
 
 	let robot = new Robot(
 		Grid.value,
-		name.value,
+		nameInput.value,
 		xInput.value,
 		yInput.value,
 		heightInput.value,
@@ -87,7 +87,7 @@ let infoOpenedEl = false;
 function openRobotInfo(index) {
 	let r =  robots[index];
 	console.log(r)
-	name.value = r.name;
+	nameInput.value = r.name;
 	xInput.value = r.left;
 	yInput.value = r.top;
 	heightInput.value = r.height;
@@ -159,7 +159,7 @@ function moveUp() {
 	if (!selectedRobotEl) {
 		return;
 	}
-	selectedRobotObject.move("UP");
+	selectedRobotObject.move("AUP", 10);
 	selectedRobotEl.style = selectedRobotObject.styles();
 }
 
@@ -167,7 +167,7 @@ function moveDown() {
 	if (!selectedRobotEl) {
 		return;
 	}
-	selectedRobotObject.move("DOWN");
+	selectedRobotObject.move("ADOWN", 10);
 	selectedRobotEl.style = selectedRobotObject.styles();
 }
 
@@ -175,7 +175,7 @@ function moveLeft() {
 	if (!selectedRobotEl) {
 		return;
 	}
-	selectedRobotObject.move("LEFT");
+	selectedRobotObject.move("ALEFT", 10);
 	selectedRobotEl.style = selectedRobotObject.styles();
 }
 
@@ -183,7 +183,7 @@ function moveRight() {
 	if (!selectedRobotEl) {
 		return;
 	}
-	selectedRobotObject.move("RIGHT");
+	selectedRobotObject.move("ARIGHT", 10);
 	selectedRobotEl.style = selectedRobotObject.styles();
 }
 
@@ -213,7 +213,7 @@ function removeRobot() {
 }
 
 editor = document.getElementById("editor");
-sourceCode = document.getElementById("source-code-textarea");
+sourceCodeEdit = document.getElementById("source-code-textarea");
 
 function closeEditor() {
 	editor.setAttribute("state", "closed");
@@ -224,7 +224,7 @@ function openEditor() {
 		_alert("Select a robot to edit!");
 		return;
 	}
-	sourceCode.value = selectedRobotObject.sourceCode;
+	sourceCodeEdit.value = selectedRobotObject.sourceCode;
 	editor.setAttribute("state", "opened");
 }
 
@@ -234,7 +234,7 @@ function saveEditor() {
 		closeEditor();
 		return;
 	}
-	selectedRobotObject.updateSourceCode(sourceCode.value.toUpperCase());
+	selectedRobotObject.updateSourceCode(sourceCodeEdit.value);
 	closeEditor();
 }
 
